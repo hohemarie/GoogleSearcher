@@ -7,3 +7,7 @@ If the latter does not give any ARGV, the program tells him or her how it works.
 The ARGV corresponds to what the user wants to search on Google.
 The program goes and gets the ARGV, builds the URL from the ARGV.
 Then the program goes and opens a new window from this search.
+
+In this repository, you will find two programs:
+-One program that does a Google search
+-One program that created a full Ruby file
