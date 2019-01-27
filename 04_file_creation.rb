@@ -1,25 +1,48 @@
-#creation dun dossier qui porte le nom de largv de lutilisateur
+#architecture du dossier
+#app.rb
+#Gemfile
+#Gemfile.lock
+#.env
+#.gitignore
+#lib
+#---app
+#------application.rb
+#------email_sender.rb
+#---views
+#------views.rb
+#spec
+#------application_spec.rb
+#------email_sender_spec.rb
+#------spec_helper.rb
+
+
 def create_folder2
 	adresse='/home/marie/'
-	adresse_complete = adresse +ARGV
-	if ARGV.split(" ").length > 0
-		adresse_complete = adresse + ARGV.split(" ")[0]
-	elsif ARGV == nil
+	adresse_complete = adresse + ARGV.split(" ")[0]
+	if ARGV == nil
 		puts "voici, acant l'interruption du programme, quelques précisions sur comment se servir de l'ARGV"
 	end
 	Dir.mkdir(adresse_complete)
 end
-def change_directory(name_directory)
-	system("cd /home/marie/programme_ruby")
+
+def change_directory_project
+  system("cd "+adresse_complete)
+end
+
+def change_directory(dir_name)
+  system("cd "+dir_name)
 end
 
 def get_folder_name
 	return folder_name = ARGV.first
 end
-def create_folder(get_folder_name)
-	Dir.mkdir(name)
+
+def create_folder(folder_name)
+	Dir.mkdir(folder_name)
 end
+
 #creation du fichier gemfile avec les gems de thp
+
 def create_gemfile_and_w
 	file=File.open("Gemfile","a")
 	file.puts("""
@@ -40,30 +63,42 @@ gem 'list'
 gem 'bundler'
 """)	
 end
-#git init
+
 def git_init
 	system("git init")
 end
-#creation fichier env
+
 def creation_env_deplac
 	file = File.open(".env","w")
 	system("mv .env gitignore")
 end
-#creation du dossier lib
+
 def creation_lib
 	Dir.mkdir("lib")
 end
+
 #rspec --init
+
 def rspec
 	system("rspec --init")
 end
+
 #creation dun fichier readme
+
 def readme
 	file=File.open("README.md","a")
 	file.puts("This is a Ruby program. Ceci est un programme Ruby.")
 end
+
 #alias soccupant de pouvoir appeler mon programme avec mkdiruby
+
 def alias
 	file=File.open("~/.bash_profile","a")
 	file.puts("alias mkdiruby = "ruby /home/MarieCleo/programme_ruby/lib/mkdiruby.rb"")	
+end
+
+def perforn
+  create_folder2
+  change_directory_project
+  
 end
