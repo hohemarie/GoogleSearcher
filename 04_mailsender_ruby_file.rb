@@ -99,7 +99,7 @@ end
 
 #alias soccupant de pouvoir appeler mon programme avec mkdiruby
 
-def alias
+def create_alias
   file=File.open("~/.bash_profile","a")
   file.puts("alias mkdiruby = "ruby /home/MarieCleo/programme_ruby/lib/mkdiruby.rb"")	
 end
@@ -107,7 +107,7 @@ end
 def perforn
   create_folder2
   change_directory_project
-  create_folder("lib")
+  creation_lib
   change_directory("lib")
   create_folder("app")
   change_directory("app")
@@ -120,5 +120,9 @@ def perforn
   parent_directory
   parent_directory
   git_init
-  rspec_init
+  rspec
+  create_folder("gitignore")
+  creation_env_deplac
+  readme
+  create_alias  
 end
